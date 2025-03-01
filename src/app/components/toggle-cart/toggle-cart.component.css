@@ -1,0 +1,23 @@
+.toggle {
+    background-color: white;
+    border: 2px solid violet ;
+    border-radius: 10px;
+    color: black;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* --------------------------------- top -------------------*/
+.toggle__containerCard {
+    display: flex;
+    gap: 4px;
+}
+.toggle__img {
+    width: 50px;
+    height: 50px;
+}
+/* ---------------------------- down ----------------------- */
+.toggle__containerTotal {
+    display: flex;
+}

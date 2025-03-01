@@ -1,0 +1,11 @@
+<div class="editCategory" >
+    <form class="editCategory__form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="editCategory__containerInput">
+            <label class="editCategory__label" for="name">Nombre</label>
+        <input class="editCategory__input" formControlName="name" type="text">
+        </div>
+        <div class="editCategory__containerBtn">
+            <button class="editCategory__button">Guardar cambios</button>
+        </div>
+    </form>
+</div>

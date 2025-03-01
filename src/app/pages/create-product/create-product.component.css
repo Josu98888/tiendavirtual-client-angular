@@ -1,0 +1,105 @@
+/* ------------------------ Mobile ------------------------- */
+@media (min-width: 0) {
+    .createProduct {
+        min-height: 40vh;
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 15px;
+    }
+    .createProduct__title {
+        text-align: center;
+        font-size: 22px;
+    }
+    /* --------- Form ------------ */
+    .createProduct__form {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 15px;
+    }
+    .createProduct__containerInput {
+        width: 100%;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+    .createProduct__label {
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    .createProduct__input {
+        border: 2px solid black;
+        border-radius: 8px;
+        width: 100%;
+    }
+    .createProduct__containerBtn {
+        align-self: center;
+        margin: 15px;
+    }
+    .createProduct__button {
+        text-decoration: none;
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 3px;
+        color: black;
+        background-color: white;
+        font-weight: bolder;
+    }
+}
+/* ------------------------ Tablet ------------------------- */
+@media (min-width: 768px) {
+    .createProduct {
+        min-height: 90vh;
+        padding: 30px;
+        margin: 60px;
+    }
+    .createProduct__title {
+        font-size: 30px;
+    }
+    /* --------- Form ------------ */
+    .createProduct__form {
+        margin-top: 60px;
+        gap: 18px;
+    }
+    .createProduct__containerInput {
+        gap: 9px;
+    }
+    .createProduct__label {
+        font-size: 19px;
+    }
+    .createProduct__containerBtn {
+        margin: 19px;
+    }
+    .createProduct__button {
+        font-size: 20px;
+    }
+}
+/* ------------------------ Laptop ------------------------- */
+@media (min-width: 1024px) {
+    .createProduct {
+        padding: 60px;
+        margin: 120px;
+    }
+    .createProduct__title {
+        font-size: 35px;
+    }
+    /* --------- Form ------------ */
+    .createProduct__form {
+        margin-top: 80px;
+        gap: 20px;
+    }
+    .createProduct__containerInput {
+        gap: 12px;
+    }
+    .createProduct__label {
+        font-size: 22px;
+    }
+    .createProduct__containerBtn {
+        margin: 25px;
+    }
+    .createProduct__button {
+        font-size: 23px;
+    }
+}

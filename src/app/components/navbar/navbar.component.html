@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <!-- Botón para abrir el menú en pantallas pequeñas -->
+  <button  class="navbar__buttonDropdown" type="button" (click)="onToggleMenu($event)">
+    <i class="bi bi-list"></i>
+  </button>
+  <!-- Menú de navegación -->
+  <!-- <div class="navbar__containerMenu" [ngClass]="{navbar__containerMenuShow: isMenuOpen}" id="navbarNavDropdown"> -->
+    <ul  class="navbar__containerMenu" [ngClass]="{navbar__containerMenuShow: isMenuOpen}" id="navbarNavDropdown" >
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="" (click)="closeMenu($event)">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="closeMenu($event)">Ofertas</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" (click)="toggleCategory($event)">
+          Categorías
+        </a>
+        <ul class="dropdown-menu" [ngClass]="{ dropdowshow: isCategoryOpen }">
+          <li *ngFor="let categorie of categories" (click)="$event.stopPropagation()">
+            <a class="dropdown-item" [routerLink]="['getProductsByCategory/', categorie.id]" (click)="closeMenu($event)">
+              {{ categorie.name }}
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="aboutUs" (click)="closeMenu($event)">Sobre nosotros</a>
+      </li>
+    </ul>
+  <!-- </div> -->
+  <div class="navbar__containerSearch">
+    <input class="navbar__search " type="search" placeholder="Buscar" [(ngModel)]="text" name="text">
+    <button class="navbar__buttonSearch" [routerLink]="['search/', text]"><i class="bi bi-search"></i></button>
+  </div>
+  <button class="navbar__buttonCart" type="button" (click)="onToggleCart($event)">
+    <i class="bi bi-bag-heart "></i>
+    <p class="navbar__quantity" *ngIf="quantityTotal && quantityTotal >= 1">{{quantityTotal}}</p>
+  </button>
+</nav>
+<div class="cart" [ngClass]="{show: viewCart}">
+  <app-toggle-cart (deleteProduct)="indexCart()" [token]="token" [quantity]="quantityTotal" [products]="products"
+    [url]="url" [total]="total" [quantityProduct]="quantityProduct"></app-toggle-cart>
+</div>

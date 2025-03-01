@@ -1,0 +1,35 @@
+<div class="sales">
+    <div class="sales__containerTable">
+    <table class="sales__table">
+        <thead class="sales__thead">
+            <tr class="sales__tr">
+                <th class="sales__th">Producto</th>
+                <th class="sales__th">Nombre</th>
+                <th class="sales__th">Cantidad</th>
+                <th class="sales__th">total</th>
+                <th class="sales__th">fecha</th>
+            </tr>
+        </thead>
+        <tbody class="sales__theadBody">
+            <tr class="sales__tr" *ngFor="let product of products; let i = index">
+                <td class="sales__td">
+                    <figure class="sales__figure">
+                        <img class="sales__img" src="{{url+'product/image/'+product.image}}" alt="image">
+                    </figure>
+                </td>
+                <td class="sales__td">
+                    <h2 class="sales__title">{{product.name}} </h2>
+                </td>
+                <td class="sales__td">
+                    <p class="sales__p">{{quantityProduct[i]}} </p>
+                </td>
+                <td class="sales__td">
+                    <p class="sales__p">{{subtotals[i] }} </p>
+                </td>
+                <td class="sales__td">
+                    <p class="sales__p">{{date[i] }} </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

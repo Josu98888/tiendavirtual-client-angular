@@ -1,0 +1,16 @@
+<div class="productDetail">
+  <div class="productDetail__containerImg">
+    <img class="card-img-top" width="100px" height="100px" src="{{url+'product/image/'+product.image}}">
+  </div>
+  <div class="card-body">
+    <h5 class="productDetail__title">{{product.name}}</h5>
+    <div class="productDetail__containerPrice">
+      <p class="productDetail__price">Precio: ${{product.priceNow}}</p>
+    <p class="productDetail__stock">stock: {{product.stock}}</p>
+    </div>
+      <p class="productDetail__description">Descripción: {{product.description}}</p>
+    <div class="productDetail__containerBtn">
+      <button class="productDetail__btn" (click)="onSubmit()">añadir<i class="bi bi-bag-heart"></i></button>
+    </div>
+  </div>
+</div>

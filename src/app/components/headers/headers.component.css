@@ -1,0 +1,146 @@
+/*  ----------------------- Mobile -------------------------------- */
+@media (min-width: 0) {
+    .header {
+        /* min-width: 100vh; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding-inline: 15px;
+    }
+    /* ---------------------------- Left ----------------------------------- */
+    .header__container-logo {
+        width: 200px;
+        height: 90px;
+        overflow: hidden;
+    }
+    .header__logo {
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+    }
+    /* ---------------------------- Right ----------------------------------- */
+    .header__container-login {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2px;
+    }
+    .header__login, .header__register {
+        border: 2px solid black;
+        border-radius: 4px;
+        color: black;
+        text-decoration: none;
+        padding: 2px;
+        font-size: 12px;
+        align-items: center;
+    }
+    /* user in logued */
+    .header__container-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90px;
+    }
+    .header__titleUser {
+        font-size: 10px;
+    }
+    .header__avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 900px;
+    }
+    /*  ----------------------------- Menu ------------------------------------- */
+    .dropdown-menu {
+        position: absolute;
+        z-index: 1000;
+        width: 80px;
+    }
+    .dropdown-item {
+        font-size: 12px;
+    }
+    .dropdown-item:active {
+        background-color: black;
+    }
+
+}
+/*  ----------------------- Tablet -------------------------------- */
+@media (min-width: 768px) {
+    .header {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-inline: 30px;
+        
+    }
+    /* ---------------------------- Left ----------------------------------- */
+    .header__container-logo {
+        width: 400px;
+        height: 50px;
+    }
+    .header__logo {
+        width: 100%;
+        height: auto;
+    }
+    /* ---------------------------- Right ----------------------------------- */
+    .header__container-login {
+        flex-direction: row;
+        gap: 8px;
+    }
+    .header__login, .header__register {
+        font-size: 16px;
+        padding: 4px;
+    }
+    /* user in logued */
+    .header__titleUser {
+        font-size: 12px;
+    }
+    .header__avatar {
+        width: 50px;
+        height: 50px;
+    }
+    /*  ----------------------------- Menu ------------------------------------- */
+    .dropdown-menu {
+        width: 100px;
+    }
+    .dropdown-item {
+        font-size: 14px;
+    }
+}
+/*  ----------------------- Laptop -------------------------------- */
+@media (min-width: 1024px) {
+    .header {
+        margin-inline: 40px;
+    }
+    /* ---------------------------- Left ----------------------------------- */
+    .header__container-logo {
+        width: 500px;
+        height: 70px;
+    }
+    /* ---------------------------- Right ----------------------------------- */
+    .header__container-login {
+        gap: 10px;
+    }
+    .header__login, .header__register {
+        padding: 10px;
+        font-size: 18px;
+    }
+    /* user in logued */
+    .header__container-user {
+        width: auto;
+    }
+    .header__titleUser {
+        font-size: 14px;
+        align-items: center;
+    }
+    .header__avatar {
+        width: 60px;
+        height: 60px;
+    }
+    /*  ----------------------------- Menu ------------------------------------- */
+    .dropdown-menu {
+        width: 120px;
+    }
+    .dropdown-item {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,83 @@
+<div class="saleDetail">
+    <div class="saleDetail__containerTable">
+        <table class="saleDetail__table">
+            <thead class="saleDetail__thead">
+                <tr class="saleDetail__tr">
+                    <th class="saleDetail__th">Producto</th>
+                    <th class="saleDetail__th">Nombre</th>
+                    <th class="saleDetail__th">Descripcion</th>
+                    <th class="saleDetail__th">Precio</th>
+                    <th class="saleDetail__th">Cantidad</th>
+                    <th class="saleDetail__th">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody  class="saleDetail__theadBody">
+                <tr class="saleDetail__tr"  *ngFor="let product of products; let i = index">
+                    <td class="saleDetail__td" >
+                        <figure class="saleDetail__figure" >
+                            <img class="saleDetail__img" src="{{url+'product/image/'+product.image}}" alt="image" height="80px" width="100px">
+                        </figure>
+                    </td>
+                    <td class="saleDetail__td">
+                        <h2 class="saleDetail__title">{{product.name}} </h2>
+                    </td>
+                    <td class="saleDetail__td">
+                        <p class="saleDetail__p">{{product.description}} </p>
+                    </td>
+                    <td class="saleDetail__td">
+                        <p class="saleDetail__p">{{product.priceNow}} </p>
+                    </td>
+                    <td class="saleDetail__td">
+                        <p class="saleDetail__p">{{quantityProduct[i]}} </p>
+                    </td>
+                    <td class="saleDetail__td">
+                        <p class="saleDetail__p">{{product.priceNow * quantityProduct[i] }} </p>
+                    </td>
+                    <td class="saleDetail__containerBtn">
+                        <button class="saleDetail__btn" type="button" (click)="onDelete(product.id)">quitar</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="saleDetail__foot">
+                <tr class="saleDetail__tr">
+                    <td class="saleDetail__td">
+                        <div class="saleDetail__containerBtn" *ngIf="quantityTotal > 0">
+                            <a class="saleDetail__btn" routerLink=""> Continuar comprando</a>
+                        </div>
+                        <div class="saleDetail__containerBtn" *ngIf="quantityTotal < 1 ">
+                            <a class="saleDetail__btn" routerLink="">Agregar productos al carrtito</a>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <h1 *ngIf="quantityTotal < 1">Tu carrito esta vacío.</h1>
+    </div>
+    <div class="saleDetail__containerDetail"  *ngIf="quantityTotal > 0" class="col-lg-4">
+        <div class="saleDetail__Detail" >
+            <h1 class="saleDetail__titleDetail">Detalles</h1>
+            <table class="saleDetail__table" >
+                <tbody class="saleDetail__theadBody">
+                    <tr class="saleDetail__tr">
+                        <td class="saleDetail__td">Total</td>
+                        <td class="saleDetail__td">${{total}}</td>
+                    </tr>
+                    <tr class="saleDetail__tr">
+                        <td class="saleDetail__td">Descuento</td>
+                        <td class="saleDetail__td">$0.00</td>
+                    </tr>
+                </tbody>
+                <tfoot class="saleDetail__foot">
+                    <tr class="saleDetail__tr">
+                        <td class="saleDetail__td">Total a pagar</td>
+                        <td class="saleDetail__td">${{total}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="saleDetail__btn" (click)="onSubmit()">Pagar</button>
+        </div>
+    </div>
+    <div class="saleDetail__containerPay" *ngIf="quantityTotal > 0">
+        <h2>Metodos de pago</h2>
+    </div>
+</div>

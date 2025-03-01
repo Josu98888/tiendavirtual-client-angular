@@ -1,0 +1,32 @@
+<div class="userEdit">
+    <h1 class="userEdit__title">Edita tu perfil</h1>
+    <form class="userEdit__form" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+        <div class="userEdit__containerInput">
+            <label class="userEdit__label" for="name">Nombre:</label>
+            <input class="userEdit__input" formControlName="name" type="text" placeholder="nombre">
+        </div>
+        <div class="userEdit__containerInput">
+            <label class="userEdit__label" for="lastname">Apellido:</label>
+            <input class="userEdit__input" formControlName="lastname" type="text" placeholder="apellido">
+        </div>
+        <div class="userEdit__containerInput">
+            <label class="userEdit__label" for="email">Email:</label>
+            <input class="userEdit__input" formControlName="email" type="email" placeholder="email">
+        </div>
+        <div class="userEdit__containerInput">
+            <label class="userEdit__label" for="avatar">Avatar: </label>
+            <div class="editUser__containerUpload">
+                <div class="editUser__containerAvatar">
+                    <img *ngIf="identity && identity.image" class="userEdit__avatar" src="{{url+'user/avatar/'+identity.image}}" alt="">
+                    <i *ngIf="!identity.image || identity.image == '' " class="bi bi-person-bounding-box fs-1 userEdit__avatar "></i>
+                </div>
+                <angular-file-uploader [config]="afuConfig" [resetUpload]="resetVar"
+                    (ApiResponse)="avatarUpload($event)">
+                </angular-file-uploader>
+            </div>
+        </div>
+        <div class="userEdit__containerBtn">
+            <button class="userEdit__button" type="button" (click)="onSubmit()">Guardar cambios</button>
+        </div>
+    </form>
+</div>

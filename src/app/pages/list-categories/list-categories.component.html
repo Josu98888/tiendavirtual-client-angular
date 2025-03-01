@@ -1,0 +1,21 @@
+<div class="listCategory">
+  <app-create-categorie (createCategorie)="getCategories()"></app-create-categorie>
+  <div class="listCategory__containerList">
+    <h1 class="listCategory__title">Tus categorías</h1>
+    <div class="listCategory__containerCard" >
+      <div class="card-body" *ngFor="let categorie of categories">
+        <h5 class="card-title">{{categorie.name}}</h5>
+        <div class="listCategory__containerBtn">
+          <button class="listCategory__button" (click)="editCategorie($event, categorie.id)">Editar</button>
+          <button class="listCategory__button" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#exampleModal' + categorie.id">Eliminar</button>
+        </div>
+        <app-modal [categorie]="categorie" [token]="token" (deleteProduct)="getCategories()"></app-modal>
+        <div *ngIf="editId === categorie.id ">
+        <app-edit-categorie (editCategorie)="getCategories()" [categorie]="categorie" [token]="token"
+          (close)="closeForId( categorie.id)"></app-edit-categorie>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

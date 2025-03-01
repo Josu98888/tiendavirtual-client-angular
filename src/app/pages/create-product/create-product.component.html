@@ -1,0 +1,40 @@
+<div class="createProduct">
+    <h1 class="createProduct__title">{{title}}</h1>
+    <form class="createProduct__form" [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="categorie">Categoría</label>
+            <select class="createProduct__input" formControlName="categorie" name="categorie">
+                <option  *ngFor="let categorie of categories | objToArray" value="{{categorie.id}}">{{categorie.name}}
+                </option>
+            </select>
+        </div>
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="name">Nombre </label>
+            <input class="createProduct__input" formControlName="name" type="text" placeholder="nombre">
+        </div>
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="description">Descripción </label>
+            <input class="createProduct__input" formControlName="description" type="text" placeholder="descripción">
+        </div>
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="description">Imagen </label>
+            <angular-file-uploader [config]="afuConfig" [resetUpload]="resetVar" (ApiResponse)="imageUpload($event)">
+            </angular-file-uploader>
+        </div>
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="priceNow">Precio actual </label>
+            <input class="createProduct__input" formControlName="priceNow" type="number" placeholder="precio actual">
+        </div>
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="priceBefore">Precio viejo </label>
+            <input class="createProduct__input" formControlName="priceBefore" type="number" placeholder="precio viejo">
+        </div>
+        <div class="createProduct__containerInput">
+            <label class="createProduct__label" for="stock">Stock </label>
+            <input class="createProduct__input" formControlName="stock" type="number" placeholder="stock">
+        </div>
+        <div class="createProduct__containerBtn">
+            <button class="createProduct__button" type="button" (click)="onSubmit()">Guardar</button>
+        </div>
+    </form>
+</div>

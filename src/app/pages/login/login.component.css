@@ -1,0 +1,126 @@
+/* ------------------------ Mobile ------------------------- */
+@media (min-width: 0) {
+    .login {
+        min-height: 40vh;
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 15px;
+    }
+    .login__title {
+        text-align: center;
+        font-size: 22px;
+    }
+    /* --------- Form ------------ */
+    .login__form {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 15px;
+    }
+    .login__containerInput {
+        width: 100%;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+    .login__label {
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    .login__input {
+        border: 2px solid black;
+        border-radius: 8px;
+        width: 100%;
+    }
+    .login__containerBtn {
+        align-self: center;
+        margin: 15px;
+    }
+    .login__button {
+        text-decoration: none;
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 3px;
+        color: black;
+        background-color: white;
+        font-weight: bolder;
+    }
+    /* --------- Msj Errors --------- */
+    .login__containerError {
+        align-self: center;
+        margin: 0;
+    }
+    .login__msjError {
+        color: red;
+        text-align: center;
+        font-size: 12px;
+    }
+    /* --------- Msj Success --------- */
+    .login__containerMessage {
+        align-self: center;
+        background-color: green;
+        filter: drop-shadow(0 0 0 15px rgb(86, 134, 86));
+        border-radius: 8px;
+        padding: 4px;
+    }
+    .login__message {
+        color: white;
+        text-align: center;
+    }
+}
+/* ------------------------ Tablet ------------------------- */
+@media (min-width: 768px) {
+    .login {
+        min-height: 60vh;
+        margin:120px;
+    }
+    .login__title {
+        font-size: 30px;
+    }
+    /* --------- Form ------------ */
+    .login__form {
+        margin-top: 60px;
+        gap: 18px;
+    }
+    .login__containerInput {
+        gap: 9px;
+    }
+    .login__label {
+        font-size: 19px;
+    }
+    .login__containerBtn {
+        margin: 19px;
+    }
+    .login__button {
+        font-size: 20px;
+    }
+}
+/* ------------------------ Laptop ------------------------- */
+@media (min-width: 1024px) {
+    .login {
+        min-height: 70vh;
+        padding: 40px;
+        margin:120px
+    }
+    .login__title {
+        font-size: 35px;
+    }
+    /* --------- Form ------------ */
+    .login__form {
+        margin-top: 80px;
+        gap: 20px;
+    }
+    .login__containerInput {
+        gap: 12px;
+    }
+    .login__label {
+        font-size: 22px;
+    }
+    .login__containerBtn {
+        margin: 25px;
+    }
+    .login__button {
+        font-size: 23px;
+    }
+}

@@ -1,0 +1,46 @@
+<div class="card">
+  <!-------------------- top ---------------------------------------------->
+  <div class="card_containerImg" [routerLink]="['productDetail',product.id]">
+    <img class="card__img" src="{{url+'product/image/'+product.image}}">
+  </div>
+  <!-------------------- Bottom ---------------------------------------------->
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <div class="card-container-text">
+      <p>${{product.priceNow}}</p>
+      <p>stock: {{product.stock}}</p>
+    </div>
+    <!-------------------- Buttons ------------------->
+    <div class="card-body__containerButton 
+    ">
+      <a *ngIf="identity.role == 'ROLE_USER'" [routerLink]="['productDetail',product.id]" class="card-button">Ver más</a>
+      <button *ngIf="identity.role == 'ROLE_USER'" class="card-button" (click)="onSubmit()">añadir <i class="bi bi-bag-heart"></i></button>
+      <a *ngIf="identity.role == 'ROLE_ADMIN' " [routerLink]="['/editProduct/',product.id]"
+        class="card-button">Editar</a>
+        <button *ngIf="identity.role == 'ROLE_ADMIN'" type="button" class="card-button" data-bs-toggle="modal"
+      [attr.data-bs-target]="'#exampleModal' + product.id">
+      Eliminar
+    </button>
+    </div>    
+    <!-------------------- Modal ------------------------>
+    <div class="modal fade" [attr.id]="'exampleModal' + product.id" tabindex="-1"
+      [attr.aria-labelledby]="'exampleModalLabel' + product.id" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" [attr.id]="'exampleModalLabel' + product.id">Eliminar producto</h1>
+            <button type="button" class="card-button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Seguro que quieres eliminar el producto {{product.name}}?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="card-button" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="card-button" data-bs-dismiss="modal"
+              (click)="deleteProduct(product.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

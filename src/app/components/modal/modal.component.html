@@ -1,0 +1,17 @@
+<div class="modal fade" [attr.id]="'exampleModal' + categorie.id" tabindex="-1" [attr.aria-labelledby]="'exampleModalLabel' + categorie.id" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" [attr.id]="'exampleModalLabel' + categorie.id">Eliminar producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Seguro que quieres eliminar = {{categorie.name}}?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>

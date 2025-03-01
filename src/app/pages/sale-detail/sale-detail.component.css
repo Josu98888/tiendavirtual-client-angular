@@ -1,0 +1,108 @@
+/*  ------------------------ Mobile ---------------------------- */
+@media (min-width: 0) {
+    .saleDetail {
+        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 120px;
+    }
+    .saleDetail__containerTable {
+        overflow-x: auto;
+    }
+    .saleDetail__table {
+        width: 100%;
+        border-collapse: collapse;
+        max-width: 200px; /* Evita que la tabla se rompa en pantallas pequeñas */
+    }
+    
+    .saleDetail__th,
+    .saleDetail__td {
+        padding: 10px;
+        text-align: left;
+        font-size: 12px;
+        border-bottom: 1px solid black;
+    }
+    .saleDetail__containerBtn {
+        display: flex;
+        justify-content: center;
+    }
+    .saleDetail__img {
+        max-width: 50px;
+        max-height: 60px;
+        border: 2px solid black;
+        border-radius: 8px;
+        height: auto;
+    }
+    .saleDetail__title {
+        font-size: 18px;
+    }
+    .saleDetail__btn {
+        align-self: center;
+        background-color: black;
+        border-radius: 8px;
+        color: white;
+        padding: 5px 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+}
+/*  ------------------------ Tablet ---------------------------- */
+@media (min-width: 768px) {
+    .saleDetail {
+        min-height: 90vh;
+        padding: 10px;
+        padding-bottom: 20px;
+    }
+    .saleDetail__table {
+        width: 100%;
+        border-collapse: collapse;
+        max-width: 300px; /* Evita que la tabla se rompa en pantallas pequeñas */
+    }
+    
+    .saleDetail__th,
+    .saleDetail__td {
+        font-size: 18px;
+    }
+    .saleDetail__img {
+        width: 90px;
+        max-height: 80px;
+    }
+    .saleDetail__title {
+        font-size: 22px;
+    }
+    .saleDetail__btn {
+        font-size: 18px;
+    }
+    
+}
+/*  ------------------------ Laptop ---------------------------- */
+@media (min-width: 1024px) {
+    .saleDetail {
+        padding: 20px;
+    }
+    .saleDetail__table {
+        max-width: 450px;
+    }
+    
+    .saleDetail__th,
+    .saleDetail__td {
+        font-size: 22px;
+    }
+    .saleDetail__img {
+        width: 120px;
+        max-height: 140px;
+    }
+    .saleDetail__title {
+        font-size: 25px;
+    }
+    .saleDetail__btn {
+        font-size: 20px;
+    }
+    .saleDetail__containerPay {
+        align-self: end;
+        padding-bottom: 60px;
+    }
+    
+}

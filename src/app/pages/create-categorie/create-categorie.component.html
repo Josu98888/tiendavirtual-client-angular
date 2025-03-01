@@ -1,0 +1,12 @@
+<div  class="createCategorie">
+  <h1 class="createCategorie__title">Creá una nueva categoría</h1>
+    <form class="createCategorie__form" [formGroup]="formCategorie" (ngSubmit)="onSubmit()">
+      <div class="createCategorie__containerInput">
+        <label class="createCategorie__label" for="">Nombre</label>
+        <input class="createCategorie__input" formControlName="name" type="text" placeholder="Ingresé el nombre">
+      </div>
+        <div class="createCategorie__containerBtn">
+          <button class="createCategorie__button" type="submit">Crear categoría</button>
+        </div>
+    </form>
+</div>

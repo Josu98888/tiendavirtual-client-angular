@@ -1,0 +1,48 @@
+<div class="login">
+    <h1 class="login__title">Iniciar sesón</h1>
+    <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="login__containerInput">
+            <label class="login__label" for="email">email:</label>
+            <input class="login__input" type="email" formControlName="email"
+                    placeholder="email">
+        </div>
+        <ng-container *ngIf="loginForm.get('email')?.touched">
+            <!-- Si el campo está vacío (requerido) -->
+            <div *ngIf="loginForm.get('email')?.hasError('required')" class="login__containerError">
+                <p class="login__msjError">El campo Email es requerido</p>
+            </div>
+            <!-- Si el email no tiene el formato correcto -->
+            <div *ngIf="loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')"
+                class="login__containerError">
+                <p class="login__msjError">El campo Email debe ser válido</p>
+            </div>
+            <!-- Si el email ya está registrado -->
+            <div *ngIf="loginForm.get('email')?.hasError('emailTaken') && !loginForm.get('email')?.hasError('required') && !loginForm.get('email')?.hasError('email')"
+                class="login__containerError">
+                <p class="login__msjError">El email no existe</p>
+            </div>
+        </ng-container>
+        <div class="login__containerInput">
+            <label class="login__label" for="password">contraseña:</label>
+            <input class="login__input" type="password"
+                    formControlName="password" placeholder="contraseña">
+        </div>
+        <ng-container *ngIf="loginForm.get('password')?.touched">
+            <!-- Si el campo está vacío (requerido) -->
+            <div *ngIf="loginForm.get('password')?.hasError('required')" class="login__containerError">
+                <p class="login__msjError">El campo Contraseña es requerido</p>
+            </div>
+            <!-- Si el password es incorrecto -->
+            <div *ngIf="loginForm.get('password')?.hasError('invalidPassword') && !loginForm.get('password')?.hasError('required')"
+                class="login__containerError">
+                <p class="login__msjError">La contraseña es incorrecta</p>
+            </div>
+        </ng-container>
+        <div class="login__containerBtn">
+            <button class="login__button" type="button" (click)="onSubmit()">Iniciar sesión</button>
+        </div>
+        <div *ngIf="status == 'success'" class="login__containerMessage">
+            <p class="login__message">Inicio de sesión exitoso!!!</p>
+        </div>
+    </form>
+</div>

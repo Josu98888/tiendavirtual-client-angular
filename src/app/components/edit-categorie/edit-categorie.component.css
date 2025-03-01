@@ -1,0 +1,83 @@
+@media (min-width: 0) {
+    /* --------- Form ------------ */
+    .editCategory__form {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 15px;
+    }
+    .editCategory__containerInput {
+        width: 100%;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+    .editCategory__label {
+        font-size: 16px;
+        font-weight: bolder;
+    }
+    .editCategory__input {
+        border: 2px solid black;
+        border-radius: 8px;
+        width: 100%;
+    }
+    .editCategory__containerBtn {
+        align-self: center;
+        margin: 15px;
+    }
+    .editCategory__button {
+        text-decoration: none;
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 3px;
+        color: black;
+        background-color: white;
+        font-weight: bolder;
+    }
+}
+/* ------------------------ Tablet ------------------------- */
+@media (min-width: 768px) {
+    .editCategory__title {
+        font-size: 20px;
+    }
+    /* --------- Form ------------ */
+    .editCategory__form {
+        margin-top: 10px;
+    }
+    .editCategory__containerInput {
+        gap: 9px;
+    }
+    .editCategory__label {
+        font-size: 15px;
+    }
+    .editCategory__containerBtn {
+        margin: 4px;
+        padding: 4px;
+    }
+    .editCategory__button {
+        font-size: 12px;
+    }
+}
+/* ------------------------ Laptop ------------------------- */
+@media (min-width: 1024px) {
+    .editCategory__title {
+        font-size: 22px;
+    }
+    /* --------- Form ------------ */
+    .editCategory__form {
+        margin-top: 10px;
+    }
+    .editCategory__containerInput {
+        gap: 9px;
+    }
+    .editCategory__label {
+        font-size: 15px;
+    }
+    .editCategory__containerBtn {
+        margin: 4px;
+        padding: 4px;
+    }
+    .editCategory__button {
+        font-size: 12px;
+    }
+}

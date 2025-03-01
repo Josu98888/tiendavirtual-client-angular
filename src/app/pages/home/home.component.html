@@ -1,0 +1,10 @@
+<div class="home">
+  <h1 class="home__title">{{title}}</h1>
+  <ul class="home__list">
+    <li  *ngFor="let product of products | paginate: { itemsPerPage: 6, currentPage: pag }">
+      <app-card-product class="home__item" [product]="product" (updateProducts)="updateProducts()"></app-card-product>
+    </li>
+  </ul>
+  <pagination-controls (pageChange)="pag = $event" previousLabel=""
+  nextLabel="" ></pagination-controls>
+</div>
