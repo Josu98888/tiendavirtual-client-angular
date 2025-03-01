@@ -3,7 +3,7 @@ import { ProductService } from 'src/app/services/productService';
 import { UserService } from 'src/app/services/userService';
 import { Product } from 'src/app/models/product';
 import { Global } from 'src/app/services/global';
-import { AngularFileUploaderConfig } from 'angular-file-uploader';
+// import { AngularFileUploaderConfig } from 'angular-file-uploader';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CategorieService } from 'src/app/services/categorieService';
 
@@ -26,22 +26,22 @@ export class CreateProductComponent implements OnInit {
   public formProduct: FormGroup = new FormGroup({});
 
   // configuracion de la libreria angular-file-update
-  public afuConfig: AngularFileUploaderConfig = {
-    multiple: false, //para cargar un archivo a la vez
-    formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
-    maxSize: 600, //capacidad max en MB
-    uploadAPI: {
-      url: Global.url + 'product/upload',
-      method: 'POST',
-      headers: {
-        Authorization: this._userService.getToken(),
-      },
-    },
-    theme: 'attachPin', //temas disponlibles
-    hideProgressBar: false, //oculta la barra de progreso
-    hideResetBtn: true, //oculta el boton restablecer
-    hideSelectBtn: false, //oculta el boton seleccionar achivo
-  };
+  // public afuConfig: AngularFileUploaderConfig = {
+  //   multiple: false, //para cargar un archivo a la vez
+  //   formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
+  //   maxSize: 600, //capacidad max en MB
+  //   uploadAPI: {
+  //     url: Global.url + 'product/upload',
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: this._userService.getToken(),
+  //     },
+  //   },
+  //   theme: 'attachPin', //temas disponlibles
+  //   hideProgressBar: false, //oculta la barra de progreso
+  //   hideResetBtn: true, //oculta el boton restablecer
+  //   hideSelectBtn: false, //oculta el boton seleccionar achivo
+  // };
 
   constructor(
     private _userService: UserService,

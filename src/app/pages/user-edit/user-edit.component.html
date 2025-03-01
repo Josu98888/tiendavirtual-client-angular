@@ -20,9 +20,9 @@
                     <img *ngIf="identity && identity.image" class="userEdit__avatar" src="{{url+'user/avatar/'+identity.image}}" alt="">
                     <i *ngIf="!identity.image || identity.image == '' " class="bi bi-person-bounding-box fs-1 userEdit__avatar "></i>
                 </div>
-                <angular-file-uploader [config]="afuConfig" [resetUpload]="resetVar"
+                <!-- <angular-file-uploader [config]="afuConfig" [resetUpload]="resetVar"
                     (ApiResponse)="avatarUpload($event)">
-                </angular-file-uploader>
+                </angular-file-uploader> -->
             </div>
         </div>
         <div class="userEdit__containerBtn">

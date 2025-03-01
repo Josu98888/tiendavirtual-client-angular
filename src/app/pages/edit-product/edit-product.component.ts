@@ -5,7 +5,7 @@ import { UserService } from 'src/app/services/userService';
 import { Global } from 'src/app/services/global';
 import { Product } from 'src/app/models/product';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AngularFileUploaderConfig } from 'angular-file-uploader';
+// import { AngularFileUploaderConfig } from 'angular-file-uploader';
 import { FormGroup, FormControl } from '@angular/forms';
 
 
@@ -27,22 +27,22 @@ export class EditProductComponent implements OnInit {
   public url:any;
   public formProduct = new FormGroup({});
 
-  public afuConfig: AngularFileUploaderConfig = {
-      multiple: false, //para cargar un archivo a la vez
-      formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
-      maxSize: 600, //capacidad max en MB
-      uploadAPI: {
-        url: Global.url + 'product/upload',
-        method: 'POST',
-        headers: {
-          Authorization: this._userService.getToken(),
-        },
-      },
-      theme: 'attachPin', //temas disponlibles
-      hideProgressBar: false, //oculta la barra de progreso
-      hideResetBtn: true, //oculta el boton restablecer
-      hideSelectBtn: false, //oculta el boton seleccionar achivo
-    };
+  // public afuConfig: AngularFileUploaderConfig = {
+  //     multiple: false, //para cargar un archivo a la vez
+  //     formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
+  //     maxSize: 600, //capacidad max en MB
+  //     uploadAPI: {
+  //       url: Global.url + 'product/upload',
+  //       method: 'POST',
+  //       headers: {
+  //         Authorization: this._userService.getToken(),
+  //       },
+  //     },
+  //     theme: 'attachPin', //temas disponlibles
+  //     hideProgressBar: false, //oculta la barra de progreso
+  //     hideResetBtn: true, //oculta el boton restablecer
+  //     hideSelectBtn: false, //oculta el boton seleccionar achivo
+  //   };
 
   constructor(
     private _categorieService: CategorieService,

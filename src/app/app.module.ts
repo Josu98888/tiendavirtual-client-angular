@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFileUploaderModule } from 'angular-file-uploader';
+// import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 import { AppComponent } from './app.component';
 import { HeadersComponent } from './components/headers/headers.component';
@@ -64,7 +64,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     routing,
     ReactiveFormsModule,
     HttpClientModule,
-    AngularFileUploaderModule,
+    // AngularFileUploaderModule,
     NgxPaginationModule
   ],
   providers: [appRoutingProviders, RouterLink, UserService, ProductService, SaleDetailService],

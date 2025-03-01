@@ -4,7 +4,7 @@ import { UserService } from 'src/app/services/userService';
 import { Global } from 'src/app/services/global';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { AngularFileUploaderConfig } from 'angular-file-uploader';
+// import { AngularFileUploaderConfig } from 'angular-file-uploader';
 
 @Component({
   selector: 'app-user-edit',
@@ -22,22 +22,22 @@ export class UserEditComponent implements OnInit {
   public editUserForm: FormGroup = new FormGroup({});
 
   // configuracion de la libreria angular-file-update
-  public afuConfig: AngularFileUploaderConfig = {
-    multiple: false, //para cargar un archivo a la vez
-    formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
-    maxSize: 600, //capacidad max en MB
-    uploadAPI: {
-      url: Global.url + 'user/upload',
-      method: 'POST',
-      headers: {
-        Authorization: this._userService.getToken(),
-      },
-    },
-    theme: 'attachPin', //temas disponlibles
-    hideProgressBar: false, //oculta la barra de progreso
-    hideResetBtn: true, //oculta el boton restablecer
-    hideSelectBtn: false, //oculta el boton seleccionar achivo
-  };
+  // public afuConfig: AngularFileUploaderConfig = {
+  //   multiple: false, //para cargar un archivo a la vez
+  //   formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
+  //   maxSize: 600, //capacidad max en MB
+  //   uploadAPI: {
+  //     url: Global.url + 'user/upload',
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: this._userService.getToken(),
+  //     },
+  //   },
+  //   theme: 'attachPin', //temas disponlibles
+  //   hideProgressBar: false, //oculta la barra de progreso
+  //   hideResetBtn: true, //oculta el boton restablecer
+  //   hideSelectBtn: false, //oculta el boton seleccionar achivo
+  // };
 
   constructor(private _userService: UserService, private _router: Router) {
     this.identity = this._userService.getIdentity();
