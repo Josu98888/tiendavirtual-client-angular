@@ -1,5 +1,5 @@
 export const Global = {
-  url: 'http://tiendavirtual-servidor-laravel-produccion.up.railway.app/api/',
+  url: 'http://tiendavirtuaaal.com/api/',
 
   reload: function reload() {
     window.location.reload();
