@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
-import { Global } from './global';
-
+import { environment } from 'src/environments/environment';
 @Injectable()
 export class SaleDetailService {
   private cartUpdated = new BehaviorSubject<boolean>(false); // Subject para emitir eventos
@@ -10,7 +9,7 @@ export class SaleDetailService {
   public url: string;
 
   constructor(public _http: HttpClient) {
-    this.url = Global.url;
+    this.url = environment.url;
   }
 
   create(token: any, cart: any): Observable<any> {

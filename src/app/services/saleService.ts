@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core"; 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Global } from "./global";
-
+import { environment } from "src/environments/environment";
 // injectamos el decorador para que no sea necesario instanciar al invocar la clase
 @Injectable()
 export class SaleService {
@@ -11,7 +10,7 @@ export class SaleService {
     constructor(
         public _http: HttpClient
     ) {
-        this.url = Global.url;
+        this.url = environment.url;
     }
 
     create(token:any, user:any): Observable<any> {

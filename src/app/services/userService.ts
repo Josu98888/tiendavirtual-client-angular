@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError  } from 'rxjs';
-import { User } from '../models/user';
+import { environment } from 'src/environments/environment';
 import { Global } from './global';
 import { catchError } from 'rxjs/operators';
 
@@ -16,7 +16,7 @@ export class UserService {
   public token: any;
 
   constructor(public _http: HttpClient) {
-    this.url = Global.url;
+    this.url = environment.url;
   }
 
   register(user: any): Observable<any> {
