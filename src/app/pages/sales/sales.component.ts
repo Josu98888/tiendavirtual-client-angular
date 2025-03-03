@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/userService';
 import { SaleService } from 'src/app/services/saleService';
-import { Global } from 'src/app/services/global';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
@@ -21,11 +20,11 @@ export class SalesComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _saleService: SaleService
+    @Inject(SaleService) private _saleService: SaleService
   ) { 
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    this.url = Global.url;
+    this.url = environment.url;
   }
 
   ngOnInit(): void {

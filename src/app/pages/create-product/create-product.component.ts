@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/productService';
 import { UserService } from 'src/app/services/userService';
 import { Product } from 'src/app/models/product';
-import { Global } from 'src/app/services/global';
+import { environment } from 'src/environments/environment';
 // import { AngularFileUploaderConfig } from 'angular-file-uploader';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CategorieService } from 'src/app/services/categorieService';
@@ -45,11 +45,11 @@ export class CreateProductComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _productService: ProductService,
+    @Inject(ProductService) private _productService: ProductService,
     private _categorieService: CategorieService
   ) {
     this.title = 'Creá un nuevo producto'
-    this.url = Global.url;
+    this.url = environment.url;
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.is_edit = false;

@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { ProductService } from 'src/app/services/productService';
 import { UserService } from 'src/app/services/userService';
 import { SaleDetailService } from 'src/app/services/saleDetailServoce';
-import { Global } from 'src/app/services/global';
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { Sale_Detail } from 'src/app/models/sale_detail';
+import { env } from 'process';
 
 @Component({
   selector: 'app-card-product',
@@ -22,11 +23,11 @@ export class CardProductComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _productService: ProductService,
+    @Inject(ProductService) private _productService: ProductService,
     private _router: Router,
     private _saleDetailService: SaleDetailService
   ) {
-    this.url = Global.url;
+    this.url = environment.url;
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.cart = new Sale_Detail(1, 1, 1, 1);

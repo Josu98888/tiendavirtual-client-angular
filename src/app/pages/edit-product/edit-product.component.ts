@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/productService';
 import { CategorieService } from 'src/app/services/categorieService';
 import { UserService } from 'src/app/services/userService';
-import { Global } from 'src/app/services/global';
+import { environment } from 'src/environments/environment';
 import { Product } from 'src/app/models/product';
 import { Router, ActivatedRoute } from '@angular/router';
 // import { AngularFileUploaderConfig } from 'angular-file-uploader';
@@ -46,13 +46,13 @@ export class EditProductComponent implements OnInit {
 
   constructor(
     private _categorieService: CategorieService,
-    private _productService: ProductService,
+    @Inject(ProductService) private _productService: ProductService,
     private _userService: UserService,
     private _router: Router,
     private _route: ActivatedRoute
   ) { 
     this.title = 'Editar producto'
-    this.url = Global.url;
+    this.url = environment.url;
     this.categories = this._categorieService.getCategories();
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();

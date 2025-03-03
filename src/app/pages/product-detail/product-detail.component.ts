@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation  } from '@angular/core';
 import { UserService } from 'src/app/services/userService';
 import { ProductService } from 'src/app/services/productService';
 import { SaleDetailService } from 'src/app/services/saleDetailServoce';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Global } from 'src/app/services/global';
+import { environment } from 'src/environments/environment';
 import { Sale_Detail } from 'src/app/models/sale_detail';
 
 @Component({
@@ -23,14 +23,14 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _productService: ProductService,
+    @Inject(ProductService) private _productService: ProductService,
     private _saleDetailService: SaleDetailService,
     private _router: Router,
     private _route: ActivatedRoute
   ) {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    this.url = Global.url;
+    this.url = environment.url;
     this.cart = new Sale_Detail(1, 1, 1, 1);
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from 'src/app/services/userService';
-import { Global } from 'src/app/services/global';
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
@@ -21,7 +21,7 @@ export class HeadersComponent implements OnInit {
     private _router: Router, 
     @Inject(DOCUMENT) private document: Document
   ) {
-    this.url = Global.url;
+    this.url = environment.url;
     this.loadUser();
   }
 

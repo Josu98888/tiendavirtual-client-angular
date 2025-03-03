@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/productService';
 import { UserService } from 'src/app/services/userService';
 import { ActivatedRoute } from '@angular/router';
-import { Global } from 'src/app/services/global';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,12 +18,12 @@ export class HomeComponent implements OnInit {
   public pag:number = 1;
 
   constructor(
-    private _productService: ProductService,
+    @Inject(ProductService) private _productService: ProductService,
     private _userService: UserService,
     private _route: ActivatedRoute
   ) { 
     this.identity = this._userService.getIdentity();
-    this.url = Global.url ;
+    this.url = environment.url ;
   }
 
   ngOnInit(): void {

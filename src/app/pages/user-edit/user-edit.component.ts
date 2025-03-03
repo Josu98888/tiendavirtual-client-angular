@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/userService';
-import { Global } from 'src/app/services/global';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 // import { AngularFileUploaderConfig } from 'angular-file-uploader';
 
 @Component({
@@ -42,7 +42,7 @@ export class UserEditComponent implements OnInit {
   constructor(private _userService: UserService, private _router: Router) {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    this.url = Global.url;
+    this.url = environment.url;
     this.user = new User(
       this.identity.sub,
       this.identity.name,

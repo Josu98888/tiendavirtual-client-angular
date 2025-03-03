@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { SaleDetailService } from 'src/app/services/saleDetailServoce';
 import { RouterLink } from '@angular/router';
 
@@ -20,7 +20,7 @@ export class ToggleCartComponent implements OnInit {
 
 
   constructor(
-    private _saleDetailService: SaleDetailService
+    @Inject(SaleDetailService) private _saleDetailService: SaleDetailService
   ) { }
 
   ngOnInit(): void {
