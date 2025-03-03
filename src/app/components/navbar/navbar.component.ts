@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, ElementRef, HostListener } from '
 import { CategorieService } from 'src/app/services/categorieService';
 import { SaleDetailService } from 'src/app/services/saleDetailServoce';
 import { UserService } from 'src/app/services/userService';
-import { Global } from 'src/app/services/global';
+import { environment } from 'src/environments/environment';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
     private eRef: ElementRef
   ) { 
     this.token = this._userService.getToken();
-    this.url = Global.url;
+    this.url = environment.url;
   }
 
   ngOnInit(): void {

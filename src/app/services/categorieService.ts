@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core"; //para injectar en cualquier componente el servicio
 import { HttpClient, HttpHeaders } from "@angular/common/http"; // para hacer las peticiones y las cabeceras
 import { Observable } from "rxjs"; //para obtener la respuestta del server
-import { Categorie } from "../models/categorie";
-import { Global } from "./global";
+import { environment } from "src/environments/environment";
 
 @Injectable() //decorador pára no instaciar la clase donde se la cree
 export class CategorieService {
@@ -11,7 +10,7 @@ export class CategorieService {
     constructor(
         public _http: HttpClient
     ) {
-        this.url = Global.url;
+        this.url = environment.url;
     }
 
     getCategories(): Observable<any> {
