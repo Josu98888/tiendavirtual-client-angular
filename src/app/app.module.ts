@@ -32,6 +32,7 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContainerPagesComponent } from './components/container-pages/container-pages.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     HttpClientModule,
     // AngularFileUploaderModule,
+    NgxFileDropModule,
     NgxPaginationModule
   ],
   providers: [appRoutingProviders, RouterLink, UserService, ProductService, SaleDetailService],
