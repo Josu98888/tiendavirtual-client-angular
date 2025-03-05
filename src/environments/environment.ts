@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://tiendavirtual-servidor-laravel-produccion.up.railway.app/',
+  url: 'http://tiendavirtuaaal.com/api/',
 };
 
 /*
