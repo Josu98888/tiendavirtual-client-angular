@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit {
   private cartSubscription!: Subscription;
   public categories:any ;
-  public viewCart:boolean = true;
+  public viewCart:boolean = false;
   public token:any;
   public url:any;
   public text:any;
