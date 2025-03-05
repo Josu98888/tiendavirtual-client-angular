@@ -18,8 +18,7 @@
         </div>
         <div class="createProduct__containerInput">
             <label class="createProduct__label" for="description">Imagen </label>
-            <!-- <angular-file-uploader [config]="afuConfig" [resetUpload]="resetVar" (ApiResponse)="imageUpload($event)">
-            </angular-file-uploader> -->
+            <input class="createProduct__input" type="file" accept=".png, .jpg, .jpeg" (change)="imageUpload($event)">
         </div>
         <div class="createProduct__containerInput">
             <label class="createProduct__label" for="priceNow">Precio actual </label>

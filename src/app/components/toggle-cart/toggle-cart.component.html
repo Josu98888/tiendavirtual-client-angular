@@ -1,11 +1,11 @@
 <div class="toggle">
-    <div *ngIf="quantity >= 1" >
+    <div class="toggle__container" *ngIf="quantity >= 1" >
         <div class="toggle__containerCard" *ngFor="let product of products; let i = index">
             <img class="toggle__img" src="{{url+'product/image/'+product.image}}" alt="image">
             <p class="toggle__title">{{product.name}}</p>
             <p class="toggle__quantity">x {{quantityProduct[i]}}</p>
-            <p>subtotal : {{product.priceNow * quantityProduct[i]}}</p>
-            <button type="button" class="btn btn-primary" (click)="onDelete(product.id)">quitar</button>
+            <p class="toggle__subtotal">subtotal : {{product.priceNow * quantityProduct[i]}}</p>
+            <button type="button" class="toggle__button" (click)="onDelete(product.id)">quitar</button>
         </div>
         <div class="toggle__containerTotal">
             <p class="toggle__total">total : {{total}}</p>

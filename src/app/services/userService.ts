@@ -83,16 +83,11 @@ export class UserService {
     return this.token;
   }
 
-  update(token: any, user: any): Observable<any> {
-    let json = JSON.stringify(user);
-    let params = 'json=' + json;
+  update(token: any, data: any): Observable<any> {
+    let headers = new HttpHeaders().set('Authorization', token);
 
-    let headers = new HttpHeaders()
-      .set('Content-type', 'application/x-www-form-urlencoded')
-      .set('Authorization', token);
-
-    return this._http.put(this.url+'update', params, {
-      headers: headers,
+    return this._http.post(this.url+'update', data, {
+      headers: headers
     });
   }
 

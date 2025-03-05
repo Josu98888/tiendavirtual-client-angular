@@ -17,12 +17,11 @@
             <label class="userEdit__label" for="avatar">Avatar: </label>
             <div class="editUser__containerUpload">
                 <div class="editUser__containerAvatar">
-                    <img *ngIf="identity && identity.image" class="userEdit__avatar" src="{{url+'user/avatar/'+identity.image}}" alt="">
-                    <i *ngIf="!identity.image || identity.image == '' " class="bi bi-person-bounding-box fs-1 userEdit__avatar "></i>
+                    <img *ngIf="identity && identity.image && imagePreview == null" class="userEdit__avatar" src="{{url+'user/avatar/'+identity.image}}" alt="avatar">
+                    <i *ngIf="!identity.image && imagePreview == null " class="bi bi-person-bounding-box fs-1 userEdit__avatar "></i>
+                    <img *ngIf="identity && imagePreview " class="userEdit__avatar" src="{{imagePreview}}" alt="avatar">
                 </div>
-                <!-- <angular-file-uploader [config]="afuConfig" [resetUpload]="resetVar"
-                    (ApiResponse)="avatarUpload($event)">
-                </angular-file-uploader> -->
+                <input class="userEdit__input" type="file" accept=".png, .jpg, .jpeg" (change)="avatarUpload($event)">
             </div>
         </div>
         <div class="userEdit__containerBtn">

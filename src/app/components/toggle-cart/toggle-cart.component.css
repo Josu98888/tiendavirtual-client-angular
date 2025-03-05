@@ -1,23 +1,122 @@
-.toggle {
-    background-color: white;
-    border: 2px solid violet ;
-    border-radius: 10px;
-    color: black;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* ----------------- Mobile ---------------------------- */
+@media (min-width: 0) {
+    .toggle {
+        padding: 4px;
+        background-color: white;
+        border: 2px solid black ;
+        border-radius: 10px;
+        color: black;
+        width: 220px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        z-index: 9000;
+        right: 0;
+
+    }
+    /* --------------------------------- top -------------------*/
+    .toggle__containerCard {
+        width: auto;
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+    }
+    .toggle__img {
+        border: 2px solid black;
+        border-radius: 8px;
+        width: 50px;
+        height: 50px;
+    }
+    .toggle__title, .toggle__quantity, .toggle__subtotal {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .toggle__button, .toggle__link {
+        margin: 10px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        cursor: pointer;
+    }
+    /* ---------------------------- down ----------------------- */
+    .toggle__containerTotal {
+        margin: 4px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid black;
+        border-radius: 8px;
+    }
+    .toggle__total {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .toggle__link {
+        text-decoration: none;
+    }
 }
-/* --------------------------------- top -------------------*/
-.toggle__containerCard {
-    display: flex;
-    gap: 4px;
+/* ----------------- Tablet ---------------------------- */
+@media (min-width: 768px) {
+    .toggle {
+        width: 300px;
+        text-align: center;
+    }
+    /* --------------------------------- top -------------------*/
+    .toggle__containerCard {
+        margin: 5px;
+        display: flex;
+        gap: 15px;
+    }
+    .toggle__img {
+        width: 50px;
+        height: 50px;
+    }
+    /* ---------------------------- down ----------------------- */
+    .toggle__containerTotal {
+        display: flex;
+    }
 }
-.toggle__img {
-    width: 50px;
-    height: 50px;
-}
-/* ---------------------------- down ----------------------- */
-.toggle__containerTotal {
-    display: flex;
+/* ----------------- Tablet ---------------------------- */
+@media (min-width: 1024px) {
+    .toggle {
+        width: 400px;
+    }
+    .toggle__container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    /* --------------------------------- top -------------------*/
+    .toggle__containerCard {
+        align-items: center;
+        justify-content:space-evenly ;
+        gap: 15px;
+    }
+    .toggle__img {
+        left: 0;
+        margin: 8px;
+        width: 70px;
+        height: 70px;
+    }
+    .toggle__title, .toggle__quantity, .toggle__subtotal {
+        font-size: 18px;
+    }
+    .toggle__button, .toggle__link {
+        padding: 10px;
+    }
+    /* ---------------------------- down ----------------------- */
+    .toggle__total {
+        font-size: 22px;
+    }
+    .toggle__link {
+        margin: 8px;
+    }
+    .toggle__containerLink {
+        margin: 10px;
+    }
 }

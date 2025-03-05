@@ -13,13 +13,10 @@ export class ProductService {
         this.url = environment.url;
     }
 
-    create(token: any, product: any): Observable<any> {
-        let json = JSON.stringify(product);
-        let params = 'json=' + json;
-        let headers = new HttpHeaders().set('Content-type', 'application/x-www-form-urlencoded')
-            .set('Authorization', token);
+    create(token: any, data: any): Observable<any> {
+        let headers = new HttpHeaders().set('Authorization', token);
 
-        return this._http.post(this.url + 'product', params, { headers: headers });
+        return this._http.post(this.url + 'product', data, { headers: headers });
     }
 
     getProducts(): Observable<any> {
@@ -28,13 +25,10 @@ export class ProductService {
         return this._http.get(this.url + 'product', { headers: headers });
     }
 
-    update(token: any, product: any, id: any): Observable<any> {
-        let json = JSON.stringify(product);
-        let params = 'json=' + json;
-        let headers = new HttpHeaders().set('Content-type', 'application/x-www-form-urlencoded')
-            .set('Authorization', token);
+    update(token: any, data: any, id: any): Observable<any> {
+        let headers = new HttpHeaders().set('Authorization', token);
 
-        return this._http.put(this.url + 'product/' + id, params, { headers: headers });
+        return this._http.post(this.url + 'product/' + id + '?_method=PUT', data, { headers: headers });
     }
 
     getProduct(id: any, token: any): Observable<any> {

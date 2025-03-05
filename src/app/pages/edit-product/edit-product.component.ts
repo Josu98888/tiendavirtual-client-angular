@@ -26,23 +26,8 @@ export class EditProductComponent implements OnInit {
   public resetVar = true;
   public url:any;
   public formProduct = new FormGroup({});
-
-  // public afuConfig: AngularFileUploaderConfig = {
-  //     multiple: false, //para cargar un archivo a la vez
-  //     formatsAllowed: '.jpg, .png, .gif, .jpeg', //extensiones disponibles
-  //     maxSize: 600, //capacidad max en MB
-  //     uploadAPI: {
-  //       url: Global.url + 'product/upload',
-  //       method: 'POST',
-  //       headers: {
-  //         Authorization: this._userService.getToken(),
-  //       },
-  //     },
-  //     theme: 'attachPin', //temas disponlibles
-  //     hideProgressBar: false, //oculta la barra de progreso
-  //     hideResetBtn: true, //oculta el boton restablecer
-  //     hideSelectBtn: false, //oculta el boton seleccionar achivo
-  //   };
+  public fileImage:any;
+  public imagePreview:any;
 
   constructor(
     private _categorieService: CategorieService,
@@ -117,33 +102,46 @@ export class EditProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.product.categorieID =  this.formProduct?.value.categorie,
-    this.product.name =  this.formProduct?.value.name,
-    this.product.description =  this.formProduct?.value.description,
-    this.product.priceNow =  this.formProduct?.value.priceNow,
-    this.product.priceBefore =  this.formProduct?.value.priceBefore,
-    this.product.stock =  this.formProduct?.value.stock
-    console.log(this.product);
-
-    this._productService.update(this.token, this.product, this.product.id).subscribe(
-      response => {
-        if(response && response.status == 'success') {
-          this.status = 'success' ;
+    // Creamos un FormData para enviar tanto los datos como la imagen
+    const formData = new FormData();
+  
+    // Añadimos los datos del producto al FormData
+    formData.append('name', this.formProduct?.value.name);
+    formData.append('categorieID', this.formProduct?.value.categorie);
+    formData.append('description', this.formProduct?.value.description);
+    formData.append('priceNow', this.formProduct?.value.priceNow);
+    formData.append('priceBefore', this.formProduct?.value.priceBefore);
+    formData.append('stock', this.formProduct?.value.stock);
+  
+    // Verificamos si hay una nueva imagen seleccionada
+    if (this.fileImage) {
+      formData.append('image', this.fileImage);
+    }
+  
+    // Llamamos al servicio de actualización con FormData
+    this._productService.update(this.token, formData, this.product.id).subscribe(
+      (response) => {
+        if (response && response.status === 'success') {
+          this.status = 'success';
           this._router.navigate(['']);
         } else {
-          this.status = 'error' ;
+          this.status = 'error';
         }
       },
-      error => {
-        this.status = 'error' ;
-        console.log(error) ;
+      (error) => {
+        this.status = 'error';
+        console.log(error);
       }
     );
   }
+  
 
-  imageUpload(datos: any) {
-    // Verificar si 'datos' es una cadena y convertirla a JSON si es necesario
-    let data = typeof datos === 'string' ? JSON.parse(datos) : datos;
-    this.product.image = data.body.image;
+  imageUpload($event: any) {
+    if($event.target.files.length > 0){
+      this.fileImage = $event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(this.fileImage);
+      reader.onloadend = () => this.imagePreview = reader.result;
+    }       
   }
 }
