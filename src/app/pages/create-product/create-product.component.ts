@@ -5,6 +5,8 @@ import { Product } from 'src/app/models/product';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CategorieService } from 'src/app/services/categorieService';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-product',
@@ -29,7 +31,8 @@ export class CreateProductComponent implements OnInit {
   constructor(
     private _userService: UserService,
     @Inject(ProductService) private _productService: ProductService,
-    private _categorieService: CategorieService
+    private _categorieService: CategorieService,
+    private _router:Router
   ) {
     this.title = 'Creá un nuevo producto'
     this.url = environment.url;
@@ -87,6 +90,9 @@ export class CreateProductComponent implements OnInit {
       (response) => {
         if (response && response.status == 'success') {
           this.status = 'success';
+          setTimeout(() => {
+            this._router.navigate(['']);
+          }, 3000);
           console.log('Producto creado con éxito:', response);
         }
       },
