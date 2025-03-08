@@ -83,10 +83,25 @@ export class UserService {
     return this.token;
   }
 
-  update(token: any, data: any): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization',  `Bearer ${token}`).set('Content-Type', 'multipart/form-data');
+  // update(token: any, data: any): Observable<any> {
+  //   let headers = new HttpHeaders().set('Authorization',  `Bearer ${token}`).set('Content-Type', 'multipart/form-data');
 
-    return this._http.post(this.url+'update', data, {
+  //   return this._http.post(this.url+'update', data, {
+  //     headers: headers
+  //   });
+  // }
+  update(token: any, data: any): Observable<any> {
+    // Calcular el tamaño del cuerpo en bytes (por ejemplo, de un FormData)
+    const contentLength = new TextEncoder().encode(data).length.toString(); // Convierte el objeto `data` a una cadena y calcula el tamaño
+  
+    // Establecer los encabezados
+    let headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'multipart/form-data')
+      .set('Content-Length', contentLength); // Aquí agregas Content-Length con el valor calculado
+  
+    // Realizar la solicitud POST
+    return this._http.post(this.url + 'update', data, {
       headers: headers
     });
   }
