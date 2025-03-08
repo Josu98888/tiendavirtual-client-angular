@@ -84,31 +84,12 @@ export class UserService {
     return this.token;
   }
 
-  // update(token: any, data: any): Observable<any> {
-  //   let headers = new HttpHeaders().set('Authorization',  `Bearer ${token}`).set('Content-Type', 'multipart/form-data');
-
-  //   return this._http.post(this.url+'update', data, {
-  //     headers: headers
-  //   });
-  // }
   update(token: any, data: any): Observable<any> {
-    const xhr = new XMLHttpRequest();
-  
-    // Usamos directamente la URL en el método open()
-    xhr.open('POST', this.url + 'update', true);
-    
-    xhr.setRequestHeader('Authorization', token);
-    xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-  
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        // Manejar la respuesta
-        console.log(xhr.responseText);
-      }
-    };
-  
-    xhr.send(data);
-    return of('Request Sent');
+    let headers = new HttpHeaders().set('Authorization', token).set('Content-Type', 'multipart/form-data');
+
+    return this._http.post(this.url+'update', data, {
+      headers: headers
+    });
   }
   
 
