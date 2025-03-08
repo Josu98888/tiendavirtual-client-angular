@@ -84,7 +84,7 @@ export class UserService {
   }
 
   update(token: any, data: any): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization', token).set('X-Content-Type-Options', 'nosniff');
+    let headers = new HttpHeaders().set('Authorization',  `Bearer ${token}`).set('Content-Type', 'multipart/form-data');
 
     return this._http.post(this.url+'update', data, {
       headers: headers
