@@ -5,7 +5,6 @@ import { SaleDetailService } from 'src/app/services/saleDetailServoce';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { Sale_Detail } from 'src/app/models/sale_detail';
-import { env } from 'process';
 
 @Component({
   selector: 'app-card-product',
