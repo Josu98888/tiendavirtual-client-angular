@@ -85,7 +85,7 @@ export class UserService {
   }
 
   update(token: any, data: any): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization', token).set('Content-Type', 'multipart/form-data');
+    let headers = new HttpHeaders().set('Authorization', token);
 
     return this._http.post(this.url+'update', data, {
       headers: headers
