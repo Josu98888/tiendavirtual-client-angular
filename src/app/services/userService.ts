@@ -4,6 +4,7 @@ import { Observable, throwError  } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Global } from './global';
 import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 
 @Injectable(
@@ -91,20 +92,25 @@ export class UserService {
   //   });
   // }
   update(token: any, data: any): Observable<any> {
-    // Calcular el tamaño del cuerpo en bytes (por ejemplo, de un FormData)
-    const contentLength = new TextEncoder().encode(data).length.toString(); // Convierte el objeto `data` a una cadena y calcula el tamaño
+    const xhr = new XMLHttpRequest();
   
-    // Establecer los encabezados
-    let headers = new HttpHeaders()
-      .set('Authorization', `Bearer ${token}`)
-      .set('Content-Type', 'multipart/form-data')
-      .set('Content-Length', contentLength); // Aquí agregas Content-Length con el valor calculado
+    // Usamos directamente la URL en el método open()
+    xhr.open('POST', this.url + 'update', true);
+    
+    xhr.setRequestHeader('Authorization', token);
+    xhr.setRequestHeader('Content-Type', 'multipart/form-data');
   
-    // Realizar la solicitud POST
-    return this._http.post(this.url + 'update', data, {
-      headers: headers
-    });
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // Manejar la respuesta
+        console.log(xhr.responseText);
+      }
+    };
+  
+    xhr.send(data);
+    return of('Request Sent');
   }
+  
 
   clearSession(): void {
     this.identity = null;
