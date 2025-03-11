@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card" [routerLink]="['/productDetail', product.id]" >
   <!-------------------- top ---------------------------------------------->
-  <div class="card_containerImg" [routerLink]="['productDetail',product.id]">
+  <div class="card_containerImg" [routerLink]="['productDetail',product.id]"  >
     <img class="card__img" src="{{url+'product/image/'+product.image}}">
   </div>
   <!-------------------- Bottom ---------------------------------------------->

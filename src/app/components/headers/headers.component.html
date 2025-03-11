@@ -18,7 +18,7 @@
     <div class="header__container-user" *ngIf="identity && identity.name">
         <div class="dropdown">
             <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img *ngIf="identity && identity.image" class="header__avatar" [src]="imageUrl" alt="avatar">
+                    <img *ngIf="identity && identity.image" class="header__avatar" [src]="imageUrl" alt="avatar" type="image">
                 
                     <i *ngIf="!identity.image || identity.image == '' " class="bi bi-person-hearts fs-4"></i>
                 
