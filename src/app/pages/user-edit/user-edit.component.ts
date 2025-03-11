@@ -82,7 +82,7 @@ export class UserEditComponent implements OnInit {
     if (this.fileAvatar) {
       formData.append('image', this.fileAvatar);
     }
-    formData.append('_method', 'PUT');
+    // formData.append('_method', 'PUT');
   
     // Llamar al servicio para actualizar el usuario con la imagen
     this._userService.update(this.token, formData).subscribe(
