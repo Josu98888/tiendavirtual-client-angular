@@ -84,6 +84,10 @@ export class UserService {
     return this.token;
   }
 
+  getUserImage(imageName: string | null): string {
+    return imageName ? `${this.url}user/avatar/${imageName}` : 'assets/default-avatar.png';
+  }
+
   update(token: any, data: any): Observable<any> {
     let headers = new HttpHeaders().set('Authorization', token).set('Contennt-Type', 'Multipart/form-data');
 

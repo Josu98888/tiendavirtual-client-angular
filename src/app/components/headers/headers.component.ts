@@ -15,6 +15,7 @@ import { Inject } from '@angular/core';
 export class HeadersComponent implements OnInit {
   public identity: any;
   public url: any;
+  public imageUrl:any;
 
   constructor(
     private _userService: UserService, 
@@ -26,6 +27,7 @@ export class HeadersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.imageUrl = this._userService.getUserImage(this.identity?.image);
   }
   
   loadUser() {
